@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Cuaca Jakarta</title>
+</head>
+<style scoped>
+
+    h2 {
+        text-align: center;
+    }
+    table {
+        margin: 10px auto;
+        border-collapse: collapse;
+    }
+    thead {  
+        background-color: #1859bc;
+        color: #ffff;
+    }
+    tbody {
+        font-size: 14px;
+    }
+    th {
+        border: 1px solid #ffff;
+        padding: 15px 15px;
+    }
+    tr td {
+        border: 1px solid #595959;
+        padding: 10px 10px;
+    }
+    .kolom-waktu {
+        width: 200px;
+    }
+    .kolom-temperatur {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="app">
+        <h2>Informasi Cuaca Jakarta</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Waktu</th>
+                    <th>Temperatur (°C)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr v-for="(cuaca, indeks) in daftarCuaca" :key="indeks">
+                    <td class="kolom-waktu">{{ cuaca.waktu }}</td>
+                    <td class="kolom-temperatur">{{ cuaca.temperatur }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Deklarasi menguhubungkan file dengan VUE CDN & JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="cuaca.js"></script>
+</body>
+</html>
